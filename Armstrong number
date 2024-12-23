@@ -1,0 +1,24 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+    
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
+        int originalnum=T;
+        int sum =0;
+        int digits = String.valueOf(T).length();
+        while(T>0)
+        {
+            int digit = T%10;
+            sum = sum +(int)Math.pow(digit,digits);
+            T/=10;
+        }
+        if(originalnum==sum)
+        {
+            System.out.println("YES"); 
+        }
+        else{
+           System.out.println("NO"); 
+        }
+        }
+    }
