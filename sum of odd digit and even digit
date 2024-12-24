@@ -1,0 +1,29 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int n = 2678;
+        String num =Integer.toString(n);
+        int a = num.length();
+        int[]arr=new int[a];
+        for(int i=0;i<a;i++){
+            arr[i] =num.charAt(i)-'0';
+        }
+        int evencount=0;
+        int oddcount=0;
+        for(int i=0;i<a;i++)
+    {
+        if(arr[i]%2==0){
+            evencount=evencount+ arr[i];
+            
+            
+        }
+        else{
+            oddcount+=arr[i];
+            
+        }
+    }
+        System.out.println(evencount);
+        System.out.println(oddcount);
+        }
+        }
+        
