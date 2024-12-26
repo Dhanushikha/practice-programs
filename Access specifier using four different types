@@ -1,0 +1,61 @@
+
+import java.util.*;
+class Main {
+    public static int addTwoNumbers(int a,int b){
+        return a+b;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int result = addTwoNumbers(a,b);
+        System.out.println(+result);
+    }
+}
+.................
+import java.util.*;
+class Main {
+    public static void addTwoNumbers(){
+        int result = a+b;
+        System.out.println(result);
+        return;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        addTwoNumbers(a,b);
+        
+    }
+}
+...................
+import java.util.*;
+class Main {
+    public static int  addTwoNumbers(){
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        return a+b;
+    }
+    public static void main(String[] args) {
+        int result = addTwoNumbers();
+        System.out.println(result);
+        
+    }
+}
+.................
+import java.util.*;
+class Main {
+    public static void  addTwoNumbers(){
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int result =a+b;
+        System.out.println(result);
+    }
+    public static void main(String[] args) {
+         addTwoNumbers();
+     
+        
+    }
+}
