@@ -1,0 +1,21 @@
+import java.lang.*;
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        StringBuffer sb1 = new StringBuffer("Hyderabad");
+        StringBuffer sb2 = new StringBuffer("Chennai");
+        StringBuffer result = new StringBuffer();
+        int n =sb1.length();
+        int m =sb2.length();
+        int max = Math.max(n,m);
+        for(int i=0;i<max;i++){
+            if(i<n){
+                result.append(sb1.charAt(i));
+            }
+            if(i<m){
+                result.append(sb2.charAt(i));
+            }
+        }
+        System.out.println(result);
+    }
+}
