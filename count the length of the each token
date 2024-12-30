@@ -1,0 +1,14 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter the string:");
+       String str=sc.nextLine();
+        StringTokenizer tokens=new StringTokenizer(str );
+        System.out.println(tokens.countTokens());
+        while(tokens.hasMoreTokens()){
+            String token=tokens.nextToken();
+            System.out.print(token.length()+" ");
+         }
+    }
+    }
