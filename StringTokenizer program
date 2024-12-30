@@ -1,0 +1,13 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+         String s = "Delhi is capital city";
+        StringTokenizer sb = new StringTokenizer(s);
+          System.out.println("Number of words:"+sb.countTokens());
+          int i=1;
+     while (sb.hasMoreTokens()) {
+        System.out.println("word "+i+":"+sb.nextToken()+","+"Remaining words :"+sb.countTokens());
+        i++;
+        }
+    }
+}
