@@ -1,0 +1,54 @@
+import java.util.*;
+
+class BankAccount {
+    float balance;
+
+    
+    public BankAccount(int initamt) {
+        this.balance = initamt;
+    }
+
+    
+    void deposit(int amt) {
+        if (amt > 0) {
+            balance += amt;
+            System.out.println("Deposited: " + amt + ", Current Balance: " + balance);
+        } else {
+            System.out.println("Amount must be greater than 0 to deposit.");
+        }
+    }
+
+    
+    void withdraw(int amt) {
+        if (amt > 0 && amt <= balance) {
+            balance -= amt;
+            System.out.println("Withdrew: " + amt + ", Remaining Balance: " + balance);
+        } else {
+            System.out.println("Insufficient balance or invalid withdrawal amount.");
+        }
+    }
+}
+
+class SavingsAccount extends BankAccount {
+    float minbal = 100; 
+    public SavingsAccount(int initamt) {
+        super(initamt); 
+    }
+    void withdraw(int amt) {
+        if (amt > minbal && amt <= balance) {
+            balance -= amt;
+            System.out.println("Withdrawn: " + amt + ", Remaining Balance: " + balance);
+        } else {
+            System.out.println("Withdrawal amount must be greater than " + minbal + " and sufficient balance.");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        SavingsAccount save = new SavingsAccount(500);
+        save.deposit(200);   
+        save.withdraw(150);  
+        save.withdraw(400);  
+    }
+}
