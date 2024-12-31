@@ -1,0 +1,27 @@
+class add{
+    int add2(int a,int b){
+        int sum=a+b;
+          System.out.println("BASE");
+        return sum;
+    }float add2(float a,float b){
+        float sum=a+b;
+        return sum;
+    }
+}
+ class classs extends add{
+     int add2(int a,int b){
+        int sum=a+b;
+        System.out.println("CHILD");
+        return sum;
+       
+ }
+ }
+class Main {
+    public static void main(String[] args) {
+         classs obj=new classs();
+       int r=  obj.add2(20,30);
+        float r1= obj.add2(10.2f,22.2f);
+        System.out.println (r);
+         System.out.println (r1);
+    }
+}
