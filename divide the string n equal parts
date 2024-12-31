@@ -1,0 +1,24 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        int n =sc.nextInt();
+        int m = s.length();
+        int len =m/n;
+        String[] str = new String[n];
+        if(m%n!=0){
+            System.out.println("The String cannot be divided");
+        }
+        else{
+            int temp = 0;
+        for(int i=0;i<m;i=i+len){
+            String part =s.substring(i,i+len);
+                str[temp]=part;
+                temp++;
+        } }
+        for(int i=0;i<str.length;i++){
+            System.out.println(str[i]);
+        }
+        }
+}
