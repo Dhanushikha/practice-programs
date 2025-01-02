@@ -1,0 +1,76 @@
+import java.util.*;
+abstract class ba{
+    abstract int dep(int a);
+    abstract int wd(int b);
+    
+}
+class sa extends ba{
+    int ba=500;
+    int t=0;
+    
+    public int dep(int a){
+     if(t<=5){
+        if(a<=25000){
+        ba+=a;
+        System.out.println("deposited and current balance:"+ ba);
+        t++;
+        System.out.println("Deposit transaction type");
+        System.out.println(" no of transactions:"+ t);
+        return ba;
+        
+    }
+    }return 0;
+    }
+    public int wd(int b){
+       if(t<=5 && b<=25000){
+        if(ba>=b){
+            ba-=b;
+             System.out.println("withdraw success and current balance:"+ ba);
+              
+             t++;
+              System.out.println("Withdraw transaction type");
+             System.out.println(" no of transactions:"+ t);
+             return ba;
+        }else{
+            System.out.println("INSUFFICIENT BALANCE");
+            System.out.println(" current balance:"+ ba);
+            t++;
+             System.out.println("Withdraw transaction type");
+            System.out.println(" no of transactions:"+ t);
+            return 0;
+        }
+       }return 0;
+}
+
+
+
+}
+
+class Main {
+    public static void main(String[] args) {
+      sa obj=new sa();
+      String trt;
+      Scanner sc=new Scanner(System.in);
+      System.out.println("DO YOU WANT ANOTHER TRANSACTION: Y/N");
+     String ch=sc.nextLine();
+     while(ch.equals("Y")){
+         System.out.println("ENTER DETAILS:");
+         System.out.println("transaction type: D/W");
+         trt=sc.nextLine();
+         if(trt.equals("D")){
+             System.out.println("ENTER AMT TO DEPOSITE:");
+             int a=sc.nextInt();
+             obj.dep(a);
+             
+         }else if(trt.equals("W")){
+             System.out.println("ENTER AMT TO WITHDRAW:");
+             int a=sc.nextInt();
+             obj.wd(a);
+         }
+         
+     }if(ch.equals("N")){
+         System.out.println("THANK YOU");
+     }
+     
+    }
+}
