@@ -1,0 +1,47 @@
+import java.util.*;
+interface Shape{
+    public float getArea(int x,int y,int z);
+    public float getPerimeter(int x,int y,int z);
+}
+class Rectangle implements Shape{
+    public float getArea(int x,int y,int z){
+        return x*y;
+    }
+    public float getPerimeter(int x,int y,int z){
+        return 2*(x+y);
+    }
+}
+class Circle implements Shape{
+     public float getArea(int x,int y,int z){
+        return 3.14f*x*x;
+    }
+    public float getPerimeter(int x,int y,int z){
+        return 2*3.14f*x;
+    }
+    
+}
+class Triangle implements Shape{
+     public float getArea(int x,int y,int z){
+        return 0.5f*x*y;
+    }
+    public float getPerimeter(int x,int y,int z){
+        return x+y+z;
+    }
+}
+class Main {
+    public static void main(String[] args) {
+       Triangle triangle=new Triangle();
+       System.out.println("Traigle:");
+       System.out.println(triangle.getArea(2,3,0));
+       System.out.println(triangle.getPerimeter(2,3,4));
+       Rectangle rectangle=new Rectangle();
+       System.out.println("rectangle:");
+       System.out.println(rectangle.getArea(2,3,0));
+       System.out.println(rectangle.getPerimeter(2,3,0));
+       System.out.println("circle:");
+       Circle circle=new Circle();
+       System.out.println(circle.getArea(4,0,0));
+       System.out.println(circle.getPerimeter(4,0,0));
+       
+    }
+}
