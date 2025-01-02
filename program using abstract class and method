@@ -1,0 +1,49 @@
+import java.util.*;
+abstract class A{
+    void add(int a,int b){
+        System.out.println("Addition of two numbers :"+(a+b));
+    }
+    abstract void prod(int a,int b);
+}
+class B extends A{
+    void prod(int a,int b){
+        System.out.println("Product of two numbers :"+(a*b));
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        B obj = new B();
+        obj.add(2,3);
+        obj.prod(4,5);
+    }
+}
+\\\\\\\\\\\\
+import java.util.*;
+abstract class A{
+    void add(int a,int b){
+        System.out.println("Addition of two numbers :"+(a+b));
+    }
+    abstract void prod(int a,int b);
+    abstract void div(int a,int b);
+}
+abstract class B extends A{
+    void prod(int a,int b){
+        System.out.println("Product of two numbers :"+(a*b));
+    }
+}
+class C extends B{
+      void div(int a,int b){
+        System.out.println("Division of two numbers :"+(a/b));
+    }
+}
+
+
+class Main {
+    public static void main(String[] args) {
+        C obj = new C();
+        obj.add(2,3);
+        obj.prod(2,3);
+        obj.div(10,2);
+       
+    }
+}
