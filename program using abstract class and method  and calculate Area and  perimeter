@@ -47,3 +47,38 @@ class Main {
        
     }
 }
+\\\\\\\\\\\\\
+import java.util.*;
+abstract class Shape{
+    
+    abstract void calculateArea(int a,int b);
+    abstract void calculatePerimeter(int a,int b,int c );
+}
+class Circle extends Shape{
+    void calculateArea(int a,int b){
+        System.out.println("Area of circle :"+(3.14*a*a));
+    }
+    void calculatePerimeter(int a,int b,int c){
+        System.out.println("perimeter of circle :"+(2*3.14*a));
+    }
+}
+class Triangle  extends Shape{
+     void calculateArea(int a,int b){
+        System.out.println("Area of Triangle :"+((1/2)*(a*b)));
+    }
+    void calculatePerimeter(int a,int b,int c){
+        System.out.println("perimeter of Triangle:"+(a+b+c));
+    } 
+}
+
+
+class Main {
+    public static void main(String[] args) {
+        Triangle obj = new Triangle();
+        Circle obj1 = new Circle();
+        obj.calculateArea(2,3);
+        obj.calculatePerimeter(2,3,4);
+        obj1.calculateArea(4,0);
+        obj1.calculatePerimeter(4,0,0);
+    }
+}
