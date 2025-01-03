@@ -1,0 +1,16 @@
+import java.util.regex.*;
+public class Main {
+    public static void main(String[] args) {
+        String str = "training2345@gmail.com";
+        String regex ="[a-z0-9_.]+@[a-z]+[\\.[a-z]{2,}]+";
+        if(str.matches(regex))
+        {
+            System.out.println("The email is valid");
+        }
+        else
+        {
+            System.out.println("The email is not valid");
+        }
+        
+    }
+}
