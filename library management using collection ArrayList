@@ -1,0 +1,192 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+// Book Class
+class Book {
+    private String bookID;
+    private String title;
+    private String author;
+    private double price;
+
+    // Constructor
+    public Book(String bookID, String title, String author, double price) {
+        this.bookID = bookID;
+        this.title = title;
+        this.author = author;
+        this.price = price;
+    }
+
+    // Getters and Setters
+    public String getBookID() {
+        return bookID;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    // ToString method to display book details
+    @Override
+    public String toString() {
+        return "Book ID: " + bookID + ", Title: " + title + ", Author: " + author + ", Price: " + price;
+    }
+}
+
+// Library Management System
+public class LibraryManagementSystem {
+    private static ArrayList<Book> library = new ArrayList<>();
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        while (true) {
+            System.out.println("\nLibrary Book Management System");
+            System.out.println("1. Add a Book");
+            System.out.println("2. View All Books");
+            System.out.println("3. Search for a Book");
+            System.out.println("4. Update Book Details");
+            System.out.println("5. Remove a Book");
+            System.out.println("6. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            switch (choice) {
+                case 1:
+                    addBook();
+                    break;
+                case 2:
+                    viewAllBooks();
+                    break;
+                case 3:
+                    searchBook();
+                    break;
+                case 4:
+                    updateBook();
+                    break;
+                case 5:
+                    removeBook();
+                    break;
+                case 6:
+                    System.out.println("Exiting the program. Goodbye!");
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
+
+    // Add a Book
+    private static void addBook() {
+        System.out.print("Enter Book ID: ");
+        String bookID = scanner.nextLine();
+        System.out.print("Enter Title: ");
+        String title = scanner.nextLine();
+        System.out.print("Enter Author: ");
+        String author = scanner.nextLine();
+        System.out.print("Enter Price: ");
+        double price = scanner.nextDouble();
+        scanner.nextLine(); // Consume newline
+
+        library.add(new Book(bookID, title, author, price));
+        System.out.println("Book added successfully!");
+    }
+
+    // View All Books
+    private static void viewAllBooks() {
+        if (library.isEmpty()) {
+            System.out.println("No books in the library.");
+        } else {
+            System.out.println("\nLibrary Books:");
+            for (Book book : library) {
+                System.out.println(book);
+            }
+        }
+    }
+
+    // Search for a Book
+    private static void searchBook() {
+        System.out.print("Enter Book ID or Title to search: ");
+        String searchTerm = scanner.nextLine();
+
+        boolean found = false;
+        for (Book book : library) {
+            if (book.getBookID().equalsIgnoreCase(searchTerm) || book.getTitle().equalsIgnoreCase(searchTerm)) {
+                System.out.println("Book Found: " + book);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Book not found.");
+        }
+    }
+
+    // Update Book Details
+    private static void updateBook() {
+        System.out.print("Enter the Book ID to update: ");
+        String bookID = scanner.nextLine();
+
+        for (Book book : library) {
+            if (book.getBookID().equalsIgnoreCase(bookID)) {
+                System.out.println("Book Found: " + book);
+                System.out.print("Enter new Title (leave blank to keep unchanged): ");
+                String newTitle = scanner.nextLine();
+                if (!newTitle.isEmpty()) {
+                    book.setTitle(newTitle);
+                }
+
+                System.out.print("Enter new Author (leave blank to keep unchanged): ");
+                String newAuthor = scanner.nextLine();
+                if (!newAuthor.isEmpty()) {
+                    book.setAuthor(newAuthor);
+                }
+
+                System.out.print("Enter new Price (enter -1 to keep unchanged): ");
+                double newPrice = scanner.nextDouble();
+                scanner.nextLine(); // Consume newline
+                if (newPrice >= 0) {
+                    book.setPrice(newPrice);
+                }
+
+                System.out.println("Book details updated successfully!");
+                return;
+            }
+        }
+        System.out.println("Book ID not found.");
+    }
+
+    // Remove a Book
+    private static void removeBook() {
+        System.out.print("Enter the Book ID to remove: ");
+        String bookID = scanner.nextLine();
+
+        for (Book book : library) {
+            if (book.getBookID().equalsIgnoreCase(bookID)) {
+                library.remove(book);
+                System.out.println("Book removed successfully!");
+                return;
+            }
+        }
+        System.out.println("Book ID not found.");
+    }
+}
