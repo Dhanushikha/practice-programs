@@ -1,0 +1,19 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.*;
+public class Main{
+    public static void main (String[] args){
+        try{
+        Scanner sc  = new Scanner(System.in);
+        String time12 = sc.nextLine();
+        SimpleDateFormat sdf12 = new SimpleDateFormat("hh:mm:ss a");
+        SimpleDateFormat sdf24 = new SimpleDateFormat("HH:mm:ss");
+        Date date = sdf12.parse(time12);
+        String time24 = sdf24.format(date);
+        System.out.println(time24);
+        }
+        catch(Exception e){
+            System.out.println("Invalid Input");
+        }
+    }
+}
